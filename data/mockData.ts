@@ -55,17 +55,17 @@ export type Track = {
   export const suggestedArtists = [
     {
       id: '1',
-      name: 'Lady Gaga',
+      name: 'Black Pink',
       image: require('../assets/images/artist-1.png'),
     },
     {
       id: '2',
-      name: 'Post Malone',
+      name: 'Micheal Jackson',
       image: require('../assets/images/artist-2.png'),
     },
     {
       id: '3',
-      name: 'Rihanna',
+      name: 'LeBron James', 
       image: require('../assets/images/artist-3.png'),
     },
   ];
