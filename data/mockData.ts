@@ -14,7 +14,6 @@ export type Track = {
       id: '1',
       title: 'Blinding Lights',
       artist: 'The Weeknd',
-      // Cập nhật đường dẫn đến file nhạc tương ứng
       url: require('../assets/sample-audio-1.mp3'),
       category: 'Pop',
       artwork: require('../assets/images/album-cover-1.png'),
@@ -23,7 +22,6 @@ export type Track = {
       id: '2',
       title: 'As It Was',
       artist: 'Harry Styles',
-      // Cập nhật đường dẫn đến file nhạc tương ứng
       url: require('../assets/sample-audio-2.mp3'),
       category: 'Pop',
       artwork: require('../assets/images/album-cover-2.png'),
@@ -32,7 +30,6 @@ export type Track = {
       id: '3',
       title: 'Anti-Hero',
       artist: 'Taylor Swift',
-      // Cập nhật đường dẫn đến file nhạc tương ứng
       url: require('../assets/sample-audio-3.mp3'),
       category: 'Pop',
       artwork: require('../assets/images/album-cover-3.png'),
@@ -41,7 +38,6 @@ export type Track = {
       id: '4',
       title: 'Idol',
       artist: 'YOASOBI',
-      // Cập nhật đường dẫn đến file nhạc tương ứng
       url: require('../assets/sample-audio-4.mp3'),
       category: 'J-pop',
       artwork: require('../assets/images/album-cover-4.png'),
@@ -50,7 +46,6 @@ export type Track = {
       id: '5',
       title: 'How You Like That',
       artist: 'BLACKPINK',
-      // Cập nhật đường dẫn đến file nhạc tương ứng
       url: require('../assets/sample-audio-5.mp3'),
       category: 'K-Pop',
       artwork: require('../assets/images/album-cover-5.png'),
