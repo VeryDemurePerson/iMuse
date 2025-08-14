@@ -5,12 +5,10 @@ import React from 'react';
 import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useAudio } from '../../context/AudioContext';
 
-// Component MiniPlayer cố định
+
 const MiniPlayer = () => {
   const router = useRouter();
   const { currentTrack, isPlaying, handlePlayPause } = useAudio();
-
-  // Không hiển thị gì nếu không có bài hát nào
   if (!currentTrack) {
     return null;
   }
@@ -41,7 +39,6 @@ export default function TabLayout() {
           tabBarStyle: {
             backgroundColor: '#191414',
             borderTopWidth: 0,
-            // Tự động tăng chiều cao của thanh tab để "nhường chỗ" cho MiniPlayer
             height: isMiniPlayerVisible ? 100 : Platform.OS === 'ios' ? 80 : 60,
           },
           headerShown: false,
@@ -75,7 +72,6 @@ export default function TabLayout() {
           }}
         />
       </Tabs>
-      {/* MiniPlayer được đặt ở đây để nó hiển thị trên tất cả các tab */}
       <MiniPlayer />
     </View>
   );
@@ -84,7 +80,6 @@ export default function TabLayout() {
 const styles = StyleSheet.create({
   miniPlayerContainer: {
     position: 'absolute',
-    // Vị trí cố định ngay trên thanh tab
     bottom: Platform.OS === 'ios' ? 100 : 60,
     left: 0,
     right: 0,

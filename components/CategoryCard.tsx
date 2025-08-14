@@ -1,5 +1,5 @@
 // components/CategoryCard.tsx
-import { useRouter } from 'expo-router'; // Import useRouter thay vì Link
+import { useRouter } from 'expo-router';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
@@ -9,19 +9,19 @@ type CategoryCardProps = {
 };
 
 const CategoryCard = ({ name, color }: CategoryCardProps) => {
-  const router = useRouter(); // Khởi tạo router
+  const router = useRouter();
 
-  // Hàm xử lý khi người dùng nhấn vào thẻ
+ 
   const handlePress = () => {
-    // Sử dụng router để điều hướng một cách trực tiếp
+   
     router.push({ pathname: "/category", params: { name: name } });
   };
 
   return (
-    // Không còn bọc bằng <Link> nữa
+    
     <TouchableOpacity
       style={[styles.container, { backgroundColor: color }]}
-      onPress={handlePress} // Gọi hàm xử lý khi nhấn
+      onPress={handlePress}
     >
       <Text style={styles.name}>{name}</Text>
     </TouchableOpacity>

@@ -1,7 +1,7 @@
 // components/SongCard.tsx
 import { useRouter } from 'expo-router';
 import React from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native'; // Import Image
+import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { useAudio } from '../context/AudioContext';
 import { Track, suggestedSongs } from '../data/mockData';
 
@@ -20,7 +20,6 @@ const SongCard = ({ track }: SongCardProps) => {
 
   return (
     <TouchableOpacity style={styles.container} onPress={handlePress}>
-      {/* Thay thế View bằng Image */}
       <Image source={track.artwork} style={styles.artwork} />
       <Text style={styles.title} numberOfLines={1}>{track.title}</Text>
       <Text style={styles.artist} numberOfLines={1}>{track.artist}</Text>
@@ -33,7 +32,7 @@ const styles = StyleSheet.create({
     width: 150,
     marginRight: 15,
   },
-  artwork: { // Sửa lại style cho Image
+  artwork: { 
     width: 150,
     height: 150,
     borderRadius: 8,

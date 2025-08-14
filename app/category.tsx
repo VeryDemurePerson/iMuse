@@ -10,8 +10,6 @@ export default function CategoryScreen() {
   const router = useRouter();
   const { name } = useLocalSearchParams();
   const categoryName = name as string;
-
-  // Lọc ra các bài hát thuộc thể loại được chọn
   const tracksInCategory = suggestedSongs.filter(
     song => song.category.toLowerCase() === categoryName.toLowerCase()
   );
@@ -29,7 +27,6 @@ export default function CategoryScreen() {
           <FlatList
             data={tracksInCategory}
             keyExtractor={(item) => item.id}
-            // Khi phát nhạc từ đây, danh sách phát sẽ là các bài hát trong thể loại này
             renderItem={({ item }) => <SearchResultRow track={item} playlist={tracksInCategory} />}
           />
         ) : (

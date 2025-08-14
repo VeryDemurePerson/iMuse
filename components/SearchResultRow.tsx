@@ -9,7 +9,7 @@ import { Track, suggestedSongs } from '../data/mockData';
 
 type SearchResultRowProps = {
   track: Track;
-  playlist?: Track[]; // Thêm prop playlist (không bắt buộc)
+  playlist?: Track[];
 };
 
 const SearchResultRow = ({ track, playlist }: SearchResultRowProps) => {
@@ -19,7 +19,6 @@ const SearchResultRow = ({ track, playlist }: SearchResultRowProps) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const handlePlayPress = async () => {
-    // Nếu có playlist được truyền vào, sử dụng nó. Nếu không, dùng mặc định.
     await playNewSong(track, playlist || suggestedSongs);
     router.push('/player');
   };

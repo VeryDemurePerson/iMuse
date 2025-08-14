@@ -5,7 +5,7 @@ import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 type ArtistAvatarProps = {
   name: string;
-  image: any; // Thêm prop 'image' vào đây
+  image: any; 
 };
 
 const ArtistAvatar = ({ name, image }: ArtistAvatarProps) => {
@@ -17,7 +17,6 @@ const ArtistAvatar = ({ name, image }: ArtistAvatarProps) => {
 
   return (
     <TouchableOpacity style={styles.container} onPress={handlePress}>
-      {/* Thay thế View bằng Image */}
       <Image source={image} style={styles.avatar} />
       <Text style={styles.name} numberOfLines={1}>{name}</Text>
     </TouchableOpacity>

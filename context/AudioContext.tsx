@@ -10,14 +10,14 @@ type AudioContextType = {
   playbackStatus: AVPlaybackStatus | null;
   repeatMode: 'off' | 'one';
   isShuffleOn: boolean;
-  volume: number; // Thêm state mới
+  volume: number; 
   playNewSong: (track: Track, playlist?: Track[]) => Promise<void>;
   handlePlayPause: () => Promise<void>;
   toggleRepeatMode: () => void;
   toggleShuffle: () => void;
   playNextSong: () => Promise<void>;
   playPreviousSong: () => Promise<void>;
-  setVolume: (volume: number) => Promise<void>; // Thêm hàm mới
+  setVolume: (volume: number) => Promise<void>; 
 };
 
 const AudioContext = createContext<AudioContextType | undefined>(undefined);
@@ -30,7 +30,7 @@ export const AudioProvider = ({ children }: { children: ReactNode }) => {
   const [repeatMode, setRepeatMode] = useState<'off' | 'one'>('off');
   const [isShuffleOn, setIsShuffleOn] = useState(false);
   const [currentPlaylist, setCurrentPlaylist] = useState<Track[]>(suggestedSongs);
-  const [volume, setVolumeState] = useState(1); // State mới cho âm lượng, 1 = 100%
+  const [volume, setVolumeState] = useState(1);
 
   const onPlaybackStatusUpdate = async (status: AVPlaybackStatus) => {
     if (status.isLoaded) {
@@ -54,7 +54,7 @@ export const AudioProvider = ({ children }: { children: ReactNode }) => {
     setCurrentTrack(track);
     const { sound: newSound } = await Audio.Sound.createAsync(
       track.url,
-      { shouldPlay: true, isLooping: repeatMode === 'one', volume: volume }, // Đặt âm lượng khi tạo
+      { shouldPlay: true, isLooping: repeatMode === 'one', volume: volume }, 
       onPlaybackStatusUpdate
     );
     setSound(newSound);
@@ -105,7 +105,7 @@ export const AudioProvider = ({ children }: { children: ReactNode }) => {
     await playNewSong(currentPlaylist[prevIndex], currentPlaylist);
   };
 
-  // HÀM MỚI ĐỂ THAY ĐỔI ÂM LƯỢNG
+
   const setVolume = async (value: number) => {
     setVolumeState(value);
     if (sound) {

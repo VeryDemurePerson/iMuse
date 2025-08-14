@@ -34,7 +34,7 @@ export default function SettingsScreen() {
       <View style={styles.container}>
         <Text style={styles.header}>Settings</Text>
 
-        {/* Mục Giới thiệu */}
+        
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>About</Text>
           <View style={styles.row}>
@@ -46,7 +46,7 @@ export default function SettingsScreen() {
           </View>
         </View>
 
-        {/* Mục Dữ liệu */}
+        
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Data Management</Text>
           <TouchableOpacity style={styles.row} onPress={handleClearData}>

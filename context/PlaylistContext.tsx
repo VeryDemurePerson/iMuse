@@ -16,7 +16,7 @@ type PlaylistContextType = {
   addTrackToPlaylist: (playlistId: string, track: Track) => void;
   deletePlaylist: (playlistId: string) => void;
   removeTrackFromPlaylist: (playlistId: string, trackId: string) => void;
-  clearAllPlaylists: () => void; // Thêm hàm mới
+  clearAllPlaylists: () => void;
 };
 
 const PlaylistContext = createContext<PlaylistContextType | undefined>(undefined);
@@ -27,7 +27,7 @@ export const PlaylistProvider = ({ children }: { children: ReactNode }) => {
   const [playlists, setPlaylists] = useState<Playlist[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // ... (useEffect để tải và lưu dữ liệu giữ nguyên)
+ 
   useEffect(() => {
     const loadPlaylists = async () => {
       try {
@@ -99,11 +99,9 @@ export const PlaylistProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
-  // HÀM MỚI ĐỂ XÓA TOÀN BỘ DỮ LIỆU
+  
   const clearAllPlaylists = () => {
     setPlaylists([]);
-    // Cũng có thể xóa trực tiếp từ AsyncStorage ở đây nếu muốn
-    // AsyncStorage.removeItem(PLAYLISTS_STORAGE_KEY);
   };
 
 
@@ -113,7 +111,7 @@ export const PlaylistProvider = ({ children }: { children: ReactNode }) => {
     addTrackToPlaylist,
     deletePlaylist,
     removeTrackFromPlaylist,
-    clearAllPlaylists, // Cung cấp hàm mới
+    clearAllPlaylists, 
   };
 
   return <PlaylistContext.Provider value={value}>{children}</PlaylistContext.Provider>;

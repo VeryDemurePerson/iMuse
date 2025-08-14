@@ -28,7 +28,7 @@ export default function SearchScreen() {
       <View style={styles.container}>
         <Text style={styles.header}>Search</Text>
 
-        {/* Thanh tìm kiếm */}
+        
         <View style={styles.searchBarContainer}>
           <FontAwesome name="search" size={20} color="black" style={styles.searchIcon} />
           <TextInput
@@ -40,7 +40,7 @@ export default function SearchScreen() {
           />
         </View>
 
-        {/* Danh sách kết quả */}
+        
         <FlatList
           data={filteredSongs}
           keyExtractor={(item) => item.id}

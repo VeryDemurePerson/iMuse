@@ -10,7 +10,7 @@ export default function LibraryScreen() {
   const [menuModalVisible, setMenuModalVisible] = useState(false);
   const [createPlaylistModalVisible, setCreatePlaylistModalVisible] = useState(false);
   const [playlistName, setPlaylistName] = useState('');
-  const { playlists, createPlaylist, deletePlaylist } = usePlaylists(); // Lấy thêm hàm deletePlaylist
+  const { playlists, createPlaylist, deletePlaylist } = usePlaylists();
 
   const handleCreatePlaylist = () => {
     if (playlistName.trim() === '') {
@@ -22,7 +22,6 @@ export default function LibraryScreen() {
     setCreatePlaylistModalVisible(false);
   };
 
-  // Hàm để xác nhận trước khi xóa
   const handleDeletePress = (playlistId: string, playlistName: string) => {
     Alert.alert(
       "Delete Playlist",
@@ -63,7 +62,6 @@ export default function LibraryScreen() {
                     <Text style={styles.playlistName}>{item.name}</Text>
                   </TouchableOpacity>
                 </Link>
-                {/* Nút xóa */}
                 <TouchableOpacity
                   style={styles.deleteButton}
                   onPress={() => handleDeletePress(item.id, item.name)}
@@ -79,7 +77,6 @@ export default function LibraryScreen() {
           </View>
         )}
 
-        {/* Nút Create và các Modal giữ nguyên */}
         <TouchableOpacity style={styles.createButton} onPress={() => setMenuModalVisible(true)}>
           <FontAwesome name="plus" size={16} color="black" />
           <Text style={styles.createButtonText}>Create</Text>
@@ -154,14 +151,14 @@ const styles = StyleSheet.create({
   cancelButton: { color: 'white', fontSize: 16, marginRight: 30 },
   confirmCreateButton: { backgroundColor: '#1DB954', paddingVertical: 10, paddingHorizontal: 25, borderRadius: 50 },
   confirmCreateButtonText: { color: 'black', fontWeight: 'bold', fontSize: 16 },
-  // Styles mới
+  
   playlistItemContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
   playlistItem: {
-    flex: 1, // Để phần nhấn được mở rộng
+    flex: 1, 
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 10,
@@ -169,6 +166,6 @@ const styles = StyleSheet.create({
   playlistIcon: { marginRight: 15 },
   playlistName: { color: 'white', fontSize: 16 },
   deleteButton: {
-    padding: 10, // Tăng vùng nhấn
+    padding: 10, 
   },
 });

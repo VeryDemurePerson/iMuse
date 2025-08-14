@@ -9,12 +9,9 @@ import { usePlaylists } from '../context/PlaylistContext';
 export default function PlaylistDetailScreen() {
   const router = useRouter();
   const { id, name } = useLocalSearchParams();
-  // Lấy thêm hàm removeTrackFromPlaylist
   const { playlists, removeTrackFromPlaylist } = usePlaylists();
 
   const currentPlaylist = playlists.find(p => p.id === id);
-
-  // Hàm để xác nhận trước khi xóa bài hát
   const handleRemoveTrack = (trackId: string, trackTitle: string) => {
     if (!currentPlaylist) return;
     Alert.alert(
@@ -46,9 +43,7 @@ export default function PlaylistDetailScreen() {
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
               <View style={styles.trackRowContainer}>
-                {/* Tái sử dụng SearchResultRow để hiển thị và phát nhạc */}
                 <SearchResultRow track={item} playlist={currentPlaylist.tracks} />
-                {/* Nút xóa bài hát */}
                 <TouchableOpacity
                   style={styles.deleteButton}
                   onPress={() => handleRemoveTrack(item.id, item.title)}
@@ -77,13 +72,12 @@ const styles = StyleSheet.create({
   emptyContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   emptyText: { color: 'white', fontSize: 20, fontWeight: 'bold' },
   emptySubText: { color: 'gray', fontSize: 16, marginTop: 8 },
-  // Styles mới
   trackRowContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
   deleteButton: {
-    paddingLeft: 15, // Tách nút xóa ra một chút
+    paddingLeft: 15, 
   },
 });

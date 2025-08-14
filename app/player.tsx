@@ -1,6 +1,6 @@
 // app/player.tsx
 import { FontAwesome } from '@expo/vector-icons';
-import Slider from '@react-native-community/slider'; // Sử dụng lại thư viện Slider
+import Slider from '@react-native-community/slider';
 import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
@@ -26,7 +26,6 @@ export default function PlayerScreen() {
   const [isSeeking, setIsSeeking] = useState(false);
   const [sliderValue, setSliderValue] = useState(0);
 
-  // Cập nhật giá trị thanh trượt dựa trên trạng thái phát nhạc
   if (playbackStatus?.isLoaded && !isSeeking) {
     if (sliderValue !== playbackStatus.positionMillis) {
       setSliderValue(playbackStatus.positionMillis);
@@ -56,7 +55,6 @@ export default function PlayerScreen() {
         <Text style={styles.title}>{currentTrack?.title || 'Unknown Title'}</Text>
         <Text style={styles.artist}>{currentTrack?.artist || 'Unknown Artist'}</Text>
 
-        {/* Quay lại sử dụng Slider cho thanh trượt tiến độ */}
         <View style={styles.sliderContainer}>
           <Slider
             style={{ width: '100%', height: 40 }}

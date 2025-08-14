@@ -11,7 +11,6 @@ export default function ArtistScreen() {
   const { name } = useLocalSearchParams();
   const artistName = name as string;
 
-  // Lọc ra các bài hát của nghệ sĩ được chọn
   const tracksByArtist = suggestedSongs.filter(
     song => song.artist.toLowerCase() === artistName.toLowerCase()
   );
@@ -29,7 +28,6 @@ export default function ArtistScreen() {
           <FlatList
             data={tracksByArtist}
             keyExtractor={(item) => item.id}
-            // Khi phát nhạc từ đây, danh sách phát sẽ là các bài hát của nghệ sĩ này
             renderItem={({ item }) => <SearchResultRow track={item} playlist={tracksByArtist} />}
           />
         ) : (
